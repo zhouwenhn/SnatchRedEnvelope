@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
+import com.chowen.apackage.snatchredenvelope.constants.Constants;
 import com.chowen.apackage.snatchredenvelope.utils.L;
 
 import java.util.ArrayList;
@@ -50,6 +51,8 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         int eventType = event.getEventType();
+        L.e("AccessibilityEvent#event>>" + eventType);
+
         if (auto)
             L.e("有事件" + eventType);
         switch (eventType) {
@@ -68,6 +71,9 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
                     auto = false;
                 }
 
+                break;
+            case AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED:
+                L.e("AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED>"+event.getEventType());
                 break;
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
                 List<CharSequence> texts = event.getText();
@@ -95,23 +101,25 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
             //当窗口的状态发生改变时
             case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
                 String className = event.getClassName().toString();
-                if (className.equals("com.tencent.mm.ui.LauncherUI")) {
+                L.e("AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED#className>>>"+className);
+                if (className.equals(Constants.LAUNCHER_UI)) {
                     //点击最后一个红包
                     L.e("点击红包");
                     if (auto)
                         getLastPacket();
                     auto = false;
                     WXMAIN = true;
-                } else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI")) {
+                } else if (className.equals(Constants.LUCKY_MONEY_MONEY_RECEIVE_UI)) {
                     //开红包
                     L.e("开红包");
                     click("com.tencent.mm:id/bdh");
                     auto = false;
                     WXMAIN = false;
-                } else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyDetailUI")) {
+                } else if (className.equals(Constants.LUCKY_MONEY_MONEY_DETAIL_UI)) {
                     //退出红包
                     L.e("退出红包");
-                    click("com.tencent.mm:id/gq");
+//                    click("com.tencent.mm:id/gq");
+                    click("com.tencent.mm:id/gs");
                     WXMAIN = false;
 
                 } else {
