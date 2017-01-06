@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+/build.gradle
+/gradle.properties
+/build
+/.idea
+.gradle/
+.idea/compiler.xml
+.idea/copyright/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/runConfigurations.xml
+.idea/workspace.xml
+app/libs/
+app/src/main/res/drawable/
