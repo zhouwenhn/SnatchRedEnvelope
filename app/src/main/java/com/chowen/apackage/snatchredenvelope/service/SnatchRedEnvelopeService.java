@@ -112,14 +112,12 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_RECEIVE_UI)) {
                     //开红包
                     L.e("开红包");
-//                    click("com.tencent.mm:id/bdh");
                     click("com.tencent.mm:id/be_");
                     auto = false;
                     WXMAIN = false;
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_DETAIL_UI)) {
                     //退出红包
                     L.e("退出红包");
-//                    click("com.tencent.mm:id/gq");
                     click("com.tencent.mm:id/gs");
                     WXMAIN = false;
 
