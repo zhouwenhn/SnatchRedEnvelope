@@ -90,7 +90,7 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
                                 PendingIntent pendingIntent = notification.contentIntent;
                                 try {
                                     auto = true;
-                                    wakeAndUnlock2(true);
+                                    wakeupUnlock(true);
                                     pendingIntent.send();
                                     L.e("进入微信" + auto + event.getClassName().toString());
                                 } catch (Exception e) {
@@ -113,15 +113,13 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
                     auto = false;
                     WXMAIN = true;
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_RECEIVE_UI)) {
-                    //开红包
                     L.e("开红包");
-                    click("com.tencent.mm:id/be_");
+                    onClick("com.tencent.mm:id/be_");
                     auto = false;
                     WXMAIN = false;
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_DETAIL_UI)) {
-                    //退出红包
                     L.e("退出红包");
-                    click("com.tencent.mm:id/gs");
+                    onClick("com.tencent.mm:id/gr");
                     WXMAIN = false;
 
                 } else {
@@ -132,7 +130,7 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    private void click(String clickId) {
+    private void onClick(String clickId) {
         AccessibilityNodeInfo nodeInfo = getRootInActiveWindow();
         if (nodeInfo != null) {
             List<AccessibilityNodeInfo> list = nodeInfo.findAccessibilityNodeInfosByViewId(clickId);
@@ -202,7 +200,7 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
         }
     }
 
-    private void wakeAndUnlock2(boolean b) {
+    private void wakeupUnlock(boolean b) {
         if (b) {
             //获取电源管理器对象
             pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
