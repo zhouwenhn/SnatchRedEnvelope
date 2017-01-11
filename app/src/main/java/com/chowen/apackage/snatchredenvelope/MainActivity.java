@@ -5,12 +5,7 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
-
-import com.chowen.apackage.snatchredenvelope.service.SnatchRedEnvelopeService;
-
+// TODO: 2017/1/11 红包声音
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,17 +21,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((ToggleButton) findViewById(R.id.btn_status)).setOnCheckedChangeListener(
-                new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (SnatchRedEnvelopeService.ALL) {
-                    SnatchRedEnvelopeService.ALL = false;
-                } else {
-                    SnatchRedEnvelopeService.ALL = true;
-                }
-            }
-
-        });
     }
 }

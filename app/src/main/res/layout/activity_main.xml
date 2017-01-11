@@ -30,6 +30,7 @@
         android:layout_below="@+id/btn_access"
         android:textColor="@android:color/holo_orange_light"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         android:textSize="20dp"/>
 
     <ToggleButton
@@ -40,6 +41,7 @@
         android:layout_centerHorizontal="true"
         android:checked="true"
         android:textSize="20sp"
+        android:visibility="gone"
         android:textColor="@color/colorAccent"
         android:textOff="关闭红包监控"
         android:textOn="打开红包监控"/>

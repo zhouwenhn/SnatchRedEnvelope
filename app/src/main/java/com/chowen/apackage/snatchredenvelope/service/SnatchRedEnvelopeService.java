@@ -9,7 +9,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.PowerManager;
 import android.support.annotation.RequiresApi;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
@@ -25,15 +24,12 @@ import java.util.List;
  */
 public class SnatchRedEnvelopeService extends AccessibilityService {
 
-    public static boolean ALL = false;
-    private List<AccessibilityNodeInfo> parents;
+    private List<AccessibilityNodeInfo> mParents;
     private boolean auto = false;
     private int lastbagnum;
     private String pubclassName;
-    private String lastMAIN;
     private boolean WXMAIN = false;
 
-    private boolean enableKeyguard = true;//默认有屏幕锁
     private KeyguardManager km;
     private KeyguardManager.KeyguardLock kl;
     //唤醒屏幕相关
@@ -43,15 +39,16 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
-        parents = new ArrayList<>();
-
+        mParents = new ArrayList<>();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         int eventType = event.getEventType();
-        L.e("AccessibilityEvent#event>>" + eventType);
+
+        L.e("AccessibilityEvent.typeAllMask>"+event.getEventType()+
+                ">ContentDescription>"+event.getText());
 
         if (auto)
             L.e("有事件" + eventType);
@@ -62,7 +59,7 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
 
                 L.e("有2048事件" + pubclassName + auto);
 
-                if (!auto && pubclassName.equals("android.widget.TextView") && ALL) {
+                if (!auto && pubclassName.equals("android.widget.TextView")) {
                     L.e("有2048事件被识别" + auto + pubclassName);
                     getLastPacket(1);
                 }
@@ -73,8 +70,14 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
 
                 break;
             case AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED:
-                L.e("AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED>"+event.getEventType());
+                L.e("AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED>"+event.getEventType()+
+                        ">ContentDescription>"+event.getText());
                 break;
+            case AccessibilityEvent.TYPE_VIEW_FOCUSED:
+                L.e("AccessibilityEvent.TYPE_VIEW_FOCUSED>"+event.getEventType()+
+                        ">ContentDescription>"+event.getContentDescription());
+                break;
+
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
                 List<CharSequence> texts = event.getText();
                 if (!texts.isEmpty()) {
@@ -123,7 +126,6 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
 
                 } else {
                     WXMAIN = false;
-                    lastMAIN = className;
                 }
                 break;
         }
@@ -145,27 +147,27 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
 
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         recycle(rootNode);
-        L.e("当前页面红包数老方法" + parents.size());
-        if (parents.size() > 0) {
-            parents.get(parents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
-            lastbagnum = parents.size();
-            parents.clear();
+        L.e("当前页面红包数老方法" + mParents.size());
+        if (mParents.size() > 0) {
+            mParents.get(mParents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            lastbagnum = mParents.size();
+            mParents.clear();
         }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void getLastPacket(int c) {
 
-        L.e("新方法" + parents.size());
+        L.e("新方法" + mParents.size());
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         recycle(rootNode);
-        L.e("last++" + lastbagnum + "当前页面红包数" + parents.size());
-        if (parents.size() > 0 && WXMAIN) {
+        L.e("last++" + lastbagnum + "当前页面红包数" + mParents.size());
+        if (mParents.size() > 0 && WXMAIN) {
             L.e("页面大于O且在微信界面");
-            if (lastbagnum < parents.size())
-                parents.get(parents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
-            lastbagnum = parents.size();
-            parents.clear();
+            if (lastbagnum < mParents.size())
+                mParents.get(mParents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
+            lastbagnum = mParents.size();
+            mParents.clear();
         }
     }
 
@@ -180,7 +182,7 @@ public class SnatchRedEnvelopeService extends AccessibilityService {
                         AccessibilityNodeInfo parent = info.getParent();
                         while (parent != null) {
                             if (parent.isClickable()) {
-                                parents.add(parent);
+                                mParents.add(parent);
                                 break;
                             }
                             parent = parent.getParent();
