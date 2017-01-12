@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/design/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
+        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.0.0_4c466047884696c6763f64eaf84a257f065531b2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.0/jars/libs/internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
@@ -18,6 +27,15 @@
         revision="25.0.0"
         sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
         <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.0_8d83dcf29b5dd8c3a66610b688861f8d15e565fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
+        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.0_3fe6d5828c161ad8d029aab433a4c0dc1a66034e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -54,6 +72,15 @@
         revision="25.0.0"
         sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
         <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.0_90b032117e9a799a9e84e0f5ca3492a21ec7919b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_61896035d236c76738bd2b9837d663523ec1c26f/classes.dex" />
     </item>
     <item
         is-multidex="true"
