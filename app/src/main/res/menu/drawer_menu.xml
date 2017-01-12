@@ -6,33 +6,33 @@
             android:id="@+id/nav_home"
             android:icon="@mipmap/ic_launcher"
             android:checkable="true"
-            android:title="Home"/>
+            android:title="红包助手"/>
         <item
             android:id="@+id/nav_messages"
             android:icon="@mipmap/ic_launcher"
             android:checkable="true"
-            android:title="Messages"/>
+            android:title="桌面悬浮球"/>
         <item
             android:id="@+id/nav_friends"
             android:icon="@mipmap/ic_launcher"
             android:checkable="true"
-            android:title="Friends"/>
+            android:title="红包提醒"/>
         <item
             android:id="@+id/nav_discussion"
             android:icon="@mipmap/ic_launcher"
             android:checkable="true"
-            android:title="Discussion"/>
+            android:title="更多设置"/>
     </group>
 
-    <item android:title="Sub items">
-        <menu>
-            <item
-                android:icon="@mipmap/ic_launcher"
-                android:title="Sub item 1"/>
-            <item
-                android:icon="@mipmap/ic_launcher"
-                android:title="Sub item 2"/>
-        </menu>
-    </item>
+    <!--<item android:title="Sub items">-->
+        <!--<menu>-->
+            <!--<item-->
+                <!--android:icon="@mipmap/ic_launcher"-->
+                <!--android:title="Sub item 1"/>-->
+            <!--<item-->
+                <!--android:icon="@mipmap/ic_launcher"-->
+                <!--android:title="Sub item 2"/>-->
+        <!--</menu>-->
+    <!--</item>-->
 
 </menu>
