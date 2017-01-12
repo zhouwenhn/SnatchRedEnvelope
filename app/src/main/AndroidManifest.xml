@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".service.SnatchRedEnvelopeService"
+            android:name=".service.RedPackageService"
             android:enabled="true"
             android:exported="true"
             android:label="@string/snatch_red_envelope"
