@@ -5,18 +5,22 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@mipmap/ic_launcher"
+            android:checkable="true"
             android:title="Home"/>
         <item
             android:id="@+id/nav_messages"
             android:icon="@mipmap/ic_launcher"
+            android:checkable="true"
             android:title="Messages"/>
         <item
             android:id="@+id/nav_friends"
             android:icon="@mipmap/ic_launcher"
+            android:checkable="true"
             android:title="Friends"/>
         <item
             android:id="@+id/nav_discussion"
             android:icon="@mipmap/ic_launcher"
+            android:checkable="true"
             android:title="Discussion"/>
     </group>
 
