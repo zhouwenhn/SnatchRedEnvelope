@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.support.annotation.RequiresApi;
 import android.view.accessibility.AccessibilityEvent;
@@ -24,6 +25,9 @@ import java.util.List;
  * Description:
  */
 public class RedPackageService extends AccessibilityService {
+
+    private static boolean mIsReturnChatPage = false;
+    private static long mDelayTime = 500;
 
     private List<AccessibilityNodeInfo> mParents;
     private boolean auto = false;
@@ -50,7 +54,6 @@ public class RedPackageService extends AccessibilityService {
 
         L.e("AccessibilityEvent.typeAllMask>"+event.getEventType()+
                 ">ContentDescription>"+event.getText());
-
         if (auto)
             L.e("有事件" + eventType);
         switch (eventType) {
@@ -130,6 +133,13 @@ public class RedPackageService extends AccessibilityService {
                     L.e("退出红包");
                     onClick("com.tencent.mm:id/gr");
                     WXMAIN = false;
+                    if (mIsReturnChatPage){
+                        new Handler().postDelayed(new Runnable(){
+                            public void run() {
+                                performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
+                            }
+                        }, mDelayTime);
+                    }
 
                 } else {
                     WXMAIN = false;
@@ -240,4 +250,13 @@ public class RedPackageService extends AccessibilityService {
     public void onInterrupt() {
 
     }
+
+    public static void setReturnChatPage(boolean isReturnChatPage){
+        mIsReturnChatPage = isReturnChatPage;
+    }
+
+    public static void setDelayTime(long time){
+        mDelayTime = time;
+    }
+
 }

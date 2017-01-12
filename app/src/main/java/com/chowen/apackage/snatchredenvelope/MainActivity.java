@@ -10,12 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+
+import com.chowen.apackage.snatchredenvelope.service.RedPackageService;
+import com.chowen.apackage.snatchredenvelope.utils.L;
 
 // TODO: 2017/1/11 红包声音
+// TODO: 2017/1/12 http://www.jianshu.com/p/4cd8c109cdfb 测试 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
+    private TextView mEtDelayTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         initDrawerLayout();
 
+        initViews();
+    }
+
+    private void initViews() {
+        mEtDelayTime = (TextView) findViewById(R.id.et_delay_time);
         findViewById(R.id.btn_access).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ((ToggleButton)findViewById(R.id.tb)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        RedPackageService.setReturnChatPage(isChecked);
+                    }
+                });
+
+        findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RedPackageService.setDelayTime(Integer.valueOf(mEtDelayTime.getText().toString()));
+            }
+        });
     }
 
     private void initDrawerLayout() {
@@ -62,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        L.e("Title>>"+item.getTitle()+">"+item.getItemId());
         if (item.getItemId() == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;

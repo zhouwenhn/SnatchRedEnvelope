@@ -34,16 +34,32 @@
         android:textColor="@android:color/holo_red_dark"
         android:text="设置"/>
 
-    <TextView
-        android:id="@+id/tv_tips"
-        android:layout_width="match_parent"
+    <ToggleButton
+        android:id="@+id/tb"
+        android:layout_below="@id/btn_access"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="zhouwen"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:textColor="@android:color/holo_orange_light"
-        android:textSize="30dp"/>
+        android:layout_centerHorizontal="true"
+        android:textOn="开启返回主界面"
+        android:textOff="关闭返回主界面"/>
+
+    <EditText
+        android:id="@+id/et_delay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:layout_below="@id/tb"
+        android:hint="设置返回聊天界面时间,默认500ms"/>
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_delay_time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="设置"/>
 
 </RelativeLayout>
 
