@@ -8,14 +8,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.chowen.apackage.snatchredenvelope.service.RedPackageService;
 import com.chowen.apackage.snatchredenvelope.utils.L;
+import com.chowen.apackage.snatchredenvelope.utils.StatusBarHelper;
 
 // TODO: 2017/1/11 红包声音
 // TODO: 2017/1/12 http://www.jianshu.com/p/4cd8c109cdfb 测试 
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         initDrawerLayout();
 
         initViews();
+
+        StatusBarHelper.setColor(this, getResources().getColor(R.color.colorPrimaryDark));
     }
 
     private void initViews() {
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((ToggleButton)findViewById(R.id.tb)).setOnCheckedChangeListener(
+        ((ToggleButton) findViewById(R.id.tb)).setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -56,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RedPackageService.setDelayTime(Integer.valueOf(mEtDelayTime.getText().toString()));
+                if (!TextUtils.isEmpty(mEtDelayTime.getText()))
+                    RedPackageService.setDelayTime(Integer.valueOf(mEtDelayTime.getText().toString()));
+                else
+                    Toast.makeText(MainActivity.this, "不能为空", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -89,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        L.e("Title>>"+item.getTitle()+">"+item.getItemId());
+        L.e("Title>>" + item.getTitle() + ">" + item.getItemId());
         if (item.getItemId() == android.R.id.home) {
             mDrawerLayout.openDrawer(GravityCompat.START);
             return true;

@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b5b9957661b044b587f77e911d76304fabdf7b27">
+        sha1="66cbef1bc090dfa38fcccbe1948a708c9d3128e2">
         <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f0d958a9e7888ff1a44bee00c013358979b25e91/classes.dex" />
     </item>
     <item
@@ -75,21 +75,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
-        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_61896035d236c76738bd2b9837d663523ec1c26f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/zhouwen/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.0/support-annotations-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
         <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.0_bf855211efa415aa83342b785c40bfa7a8f98101/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.0_61896035d236c76738bd2b9837d663523ec1c26f/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -111,21 +111,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f0070f93365e166ffea64cc48ff57b5b828f99b8">
-        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c00e223f64936a2eda6136e104f56d785ddb5954/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
         <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.0_cb78b02e1aae1f56b9d5b6cf9321fa8627cf1c16/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bab192ddddbbfcdd360ed543995cc1659e497ee2">
+        <dex dex="/Users/zhouwen/project/github/github_personal/SnatchRedEnve/SnatchRedEnvelope/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_c00e223f64936a2eda6136e104f56d785ddb5954/classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -32,34 +32,37 @@
         android:background="@drawable/setting_shape"
         android:layout_below="@id/tv_setting_tips"
         android:textColor="@android:color/holo_red_dark"
-        android:text="设置"/>
-
-    <ToggleButton
-        android:id="@+id/tb"
-        android:layout_below="@id/btn_access"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textOn="开启返回主界面"
-        android:textOff="关闭返回主界面"/>
+        android:text="去设置"/>
 
     <EditText
         android:id="@+id/et_delay_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:layout_below="@id/tb"
+        android:layout_below="@id/btn_access"
         android:hint="设置返回聊天界面时间,默认500ms"/>
 
     <Button
         android:id="@+id/btn_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_delay_time"
+        android:layout_below="@id/btn_access"
+        android:layout_toRightOf="@+id/tb"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/setting_shape"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="4dp"
         android:text="设置"/>
+
+    <ToggleButton
+        android:id="@+id/tb"
+        android:layout_below="@id/et_delay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textOn="开启抢完红包返回聊天界面"
+        android:textOff="关闭抢完红包返回聊天界面"/>
+
 
 </RelativeLayout>
 

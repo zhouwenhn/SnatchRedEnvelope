@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">红包助手</string>
-    <string name="snatch_red_envelope">微信自动抢红包</string>
+    <string name="snatch_red_envelope">自动抢红包开关</string>
     <string name="description">微信抢红包插件,可以在对话内强红包,可开启关闭本功能,默认关闭</string>
 </resources>
