@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView mNavigationView;
     private TextView mEtDelayTime;
 
+//    private FloatViewService mFloatViewService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +39,30 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
+//        Intent intent = new Intent(this, FloatViewService.class);
+//        startService(intent);
+//        bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+
         StatusBarHelper.setColor(this, getResources().getColor(R.color.colorPrimaryDark));
     }
+
+    /**
+     * 显示悬浮图标
+     */
+//    private void showFloatView() {
+//        if (mFloatViewService != null) {
+//            mFloatViewService.showFloat();
+//        }
+//    }
+
+    /**
+     * 隐藏悬浮图标
+     */
+//    public void hideFloatingView() {
+//        if (mFloatViewService != null) {
+//            mFloatViewService.hideFloat();
+//        }
+//    }
 
     private void initViews() {
         mEtDelayTime = (TextView) findViewById(R.id.et_delay_time);
@@ -104,4 +128,25 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onDestroy() {
+//        stopService(new Intent(this, FloatViewService.class));
+//        unbindService(mServiceConnection);
+    }
+
+    /**
+     * 连接到Service
+     */
+//    private final ServiceConnection mServiceConnection = new ServiceConnection() {
+//        @Override
+//        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+//            mFloatViewService = ((FloatViewService.FloatViewServiceBinder) iBinder).getService();
+//        }
+//
+//        @Override
+//        public void onServiceDisconnected(ComponentName componentName) {
+//            mFloatViewService = null;
+//        }
+//    };
 }
