@@ -17,6 +17,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        dexun {
+            //manifestPlaceholders = [ CHANNEL_NAME:"YINGYONGBAO"]
+        }
+        junge {
+           // manifestPlaceholders = [ CHANNEL_NAME:"UMENG" ]
+        }
+        nanpin {
+            //manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
+        tanye {
+            //manifestPlaceholders = [ CHANNEL_NAME:"WANDOUJIA" ]
+        }
+
+    }
 }
 
 dependencies {
