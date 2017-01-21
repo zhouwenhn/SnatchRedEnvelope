@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SwitchCompat;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.chowen.apackage.snatchredenvelope.constants.Constants;
 import com.chowen.apackage.snatchredenvelope.service.RedPackageService;
 import com.chowen.apackage.snatchredenvelope.utils.L;
 import com.chowen.apackage.snatchredenvelope.utils.StatusBarHelper;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private TextView mEtDelayTime;
+    private TextView mBtnSetting;
+    private SwitchCompat mSwitchCompat;
 
 //    private FloatViewService mFloatViewService;
 
@@ -66,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         mEtDelayTime = (TextView) findViewById(R.id.et_delay_time);
+        if (Constants.DEBUG){
+            mEtDelayTime.setVisibility(View.VISIBLE);
+        }
         findViewById(R.id.btn_access).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ((ToggleButton) findViewById(R.id.tb)).setOnCheckedChangeListener(
+        (mSwitchCompat = (SwitchCompat) findViewById(R.id.tb)).setOnCheckedChangeListener(
                 new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -82,7 +89,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {
+        if (Constants.DEBUG){
+            mSwitchCompat.setVisibility(View.VISIBLE);
+        }
+
+        (mBtnSetting = (TextView) findViewById(R.id.btn_setting)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(mEtDelayTime.getText()))
@@ -91,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "不能为空", Toast.LENGTH_LONG).show();
             }
         });
+        if (Constants.DEBUG){
+            mBtnSetting.setVisibility(View.VISIBLE);
+        }
     }
 
     private void initDrawerLayout() {

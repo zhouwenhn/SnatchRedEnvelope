@@ -32,7 +32,7 @@
         android:background="@drawable/setting_shape"
         android:layout_below="@id/tv_setting_tips"
         android:textColor="@android:color/holo_red_dark"
-        android:text="去设置"/>
+        android:text="设置自动红包"/>
 
     <EditText
         android:id="@+id/et_delay_time"
@@ -40,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_below="@id/btn_access"
+        tools:visibility="visible"
+        android:visibility="gone"
         android:hint="设置返回聊天界面时间,默认500ms"/>
 
     <Button
@@ -49,19 +51,22 @@
         android:layout_below="@id/btn_access"
         android:layout_toRightOf="@+id/tb"
         android:layout_marginLeft="10dp"
+        tools:visibility="visible"
+        android:visibility="gone"
         android:background="@drawable/setting_shape"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="4dp"
         android:text="设置"/>
 
-    <ToggleButton
+    <android.support.v7.widget.SwitchCompat
         android:id="@+id/tb"
         android:layout_below="@id/et_delay_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:visibility="visible"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
-        android:textOn="开启抢完红包返回聊天界面"
-        android:textOff="关闭抢完红包返回聊天界面"/>
+        android:text="开启抢完红包返回聊天界面"/>
 
 
 </RelativeLayout>

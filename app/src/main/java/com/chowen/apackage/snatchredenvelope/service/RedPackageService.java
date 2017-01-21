@@ -26,8 +26,8 @@ import java.util.List;
  */
 public class RedPackageService extends AccessibilityService {
 
-    private static boolean mIsReturnChatPage = false;
-    private static long mDelayTime = 500;
+    private static boolean mIsReturnChatPage = true;
+    private static long mDelayTime = 800;
 
     private List<AccessibilityNodeInfo> mParents;
     private boolean auto = false;
@@ -126,16 +126,18 @@ public class RedPackageService extends AccessibilityService {
                     WXMAIN = true;
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_RECEIVE_UI)) {
                     L.e("开红包");
-                    onClick("com.tencent.mm:id/be_");
+                    onClick("com.tencent.mm:id/bi3");
                     auto = false;
                     WXMAIN = false;
                 } else if (className.equals(Constants.LUCKY_MONEY_MONEY_DETAIL_UI)) {
                     L.e("退出红包");
-                    onClick("com.tencent.mm:id/gr");
+                   // onClick("com.tencent.mm:id/gw");
+                    performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
                     WXMAIN = false;
                     if (mIsReturnChatPage){
                         new Handler().postDelayed(new Runnable(){
                             public void run() {
+//                                onClick("com.tencent.mm:id/gg");
                                 performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
                             }
                         }, mDelayTime);

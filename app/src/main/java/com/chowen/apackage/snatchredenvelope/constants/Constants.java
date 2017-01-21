@@ -7,6 +7,8 @@ package com.chowen.apackage.snatchredenvelope.constants;
 
 public interface Constants {
 
+    boolean DEBUG = false;
+
     String LAUNCHER_UI = "com.tencent.mm.ui.LauncherUI";
 
     String LUCKY_MONEY_MONEY_RECEIVE_UI = "com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI";
